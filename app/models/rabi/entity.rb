@@ -38,6 +38,15 @@ class Rabi::Entity < ActiveRecord::Base
 	accepts_nested_attributes_for :entity_attributes,
 		reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
 
+	with_options class_name: 'Relation', primary_key: :name, dependent: :destroy do |this|
+		this.has_many :source_relations, foreign_key: :source_type
+		this.has_many :target_relations, foreign_key: :target_type
+	end
+
+	def relations
+		source_relations + target_relations
+	end
+
 
 	def self.model_names
 		pluck :name
