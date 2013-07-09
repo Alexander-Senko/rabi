@@ -7,11 +7,12 @@ require 'rabi/version'
 Gem::Specification.new do |s|
 	s.name        = 'rabi'
 	s.version     = Rabi::VERSION
-	s.authors     = ['TODO: Your name']
-	s.email       = ['TODO: Your email']
-	s.homepage    = 'TODO'
-	s.summary     = 'TODO: Summary of Rabi.'
-	s.description = 'TODO: Description of Rabi.'
+	s.authors     = [ 'Alexander Senko' ]
+	s.email       = [ 'Alexander.Senko@gmail.com' ]
+	s.homepage    = 'https://github.com/softpro/rabi'
+	s.summary     = 'Rails Application Building Itself.'
+	s.description = 'Rails engine providing an interface for managing your DB schema, data and access control.'
+	s.license     = 'MIT'
 
 	s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
