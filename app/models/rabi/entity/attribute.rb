@@ -50,7 +50,7 @@ class Rabi::Entity::Attribute < ActiveRecord::Base
 
 
 	def name= value # normalize
-		write_attribute :name, Russian.transliterate(value).
-			gsub(/\s+/, '_').underscore.gsub(/(^[^a-z_]+|[^a-z0-9_]+)/, '')
+		write_attribute :name, value.parameterize('_').
+			gsub(/^[^a-z_]+/, '_')
 	end
 end

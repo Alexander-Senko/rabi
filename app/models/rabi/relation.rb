@@ -48,8 +48,6 @@ class Rabi::Relation < Relation
 
 
 	def name= role_name # normalize
-		super Russian.transliterate(role_name).
-			gsub(/\s+/, '_').underscore.gsub(/[^a-z0-9_]/i, '').
-				presence
+		super role_name.parameterize('_').presence
 	end
 end
