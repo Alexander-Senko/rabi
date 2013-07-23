@@ -13,6 +13,10 @@ class Rabi::Entity < ActiveRecord::Base
 		# TODO: enable editing of entity
 	end
 
+	before_destroy do
+		not model.is_a? User
+	end
+
 	after_destroy do
 		Rabi.destroy :model, name
 	end
@@ -46,6 +50,9 @@ class Rabi::Entity < ActiveRecord::Base
 	def relations
 		source_relations + target_relations
 	end
+
+	has_many :permits, class_name: 'User::Permit', inverse_of: :subject_entity,
+		primary_key: :name, foreign_key: :subject_type
 
 
 	def self.model_names

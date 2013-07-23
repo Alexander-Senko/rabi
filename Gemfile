@@ -13,4 +13,5 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-gem 'rails_dynamic_associations', github: 'softpro/rails_dynamic_associations'
+gem 'rails_dynamic_associations', github: 'softpro/rails_dynamic_associations', branch: 'rails-4'
+gem 'rails_dynamic_user_roles',   github: 'softpro/rails_dynamic_user_roles'
