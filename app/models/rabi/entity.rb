@@ -71,3 +71,7 @@ class Rabi::Entity < ActiveRecord::Base
 			gsub(/^[^A-Z_]+/, '_')
 	end
 end
+
+# TODO: remove
+# Rails autoload doesn't work here because of the name collision
+require Rabi::Engine.root.join('app/models/rabi/entity/attribute')
