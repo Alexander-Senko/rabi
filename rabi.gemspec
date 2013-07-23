@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 	s.add_dependency 'rails', '~> 4.0.0'
 
 	s.add_dependency 'rails_dynamic_associations'
+	s.add_dependency 'passenger' # just for reloading
 
 	s.add_development_dependency 'sqlite3'
 end
