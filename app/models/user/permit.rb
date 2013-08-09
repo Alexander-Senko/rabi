@@ -1,3 +1,5 @@
+require RailsDynamicUserRoles::Engine.root.join('app/models/user/permit')
+
 class User::Permit < ActiveRecord::Base
 	belongs_to :subject_entity, inverse_of: :permits,
 		foreign_key: :subject_type, class_name: 'Rabi::Entity', primary_key: :name

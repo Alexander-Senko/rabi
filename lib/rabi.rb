@@ -1,3 +1,5 @@
+require 'rails_dynamic_associations'
+require 'rails_dynamic_user_roles'
 require 'rails_admin'
 
 require 'rabi/engine'

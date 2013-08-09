@@ -1,3 +1,5 @@
+require RailsDynamicUserRoles::Engine.root.join('app/models/user')
+
 class User < ActiveRecord::Base
 	def name
 		name = email.split('@').first and
