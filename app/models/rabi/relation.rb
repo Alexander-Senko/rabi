@@ -27,16 +27,6 @@ class Rabi::Relation < Relation
 	end
 
 
-	def self.columns
-		super.reject do |column|
-			column.name.in? %w[
-				source_id
-				target_id
-			]
-		end
-	end
-
-
 	validates_presence_of :source_type,
 	                      :target_type
 
