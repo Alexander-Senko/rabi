@@ -1,12 +1,22 @@
 require RailsDynamicUserRoles::Engine.root.join('app/models/user/permit')
 
 class User::Permit < ActiveRecord::Base
-	belongs_to :subject_entity, inverse_of: :permits,
-		foreign_key: :subject_type, class_name: 'Rabi::Entity', primary_key: :name
+	rails_admin do
+		configure :subject do
+			class << self
+				def value
+					case value = super
+						when Class then value.entity
+						else            value
+					end
+				end
+			end
+		end
+	end
 
 	def human_name
 		[
-			behavior, action, subject && subject.config.object_label
+			behavior, action, subject && (subject_id ? subject : subject.entity).config.object_label
 		].compact * ' '
 	end
 
@@ -19,4 +29,8 @@ class User::Permit < ActiveRecord::Base
 	end
 
 	alias_method_chain :action_enum, :rabi
+
+	def subject_type
+		super.presence # subject_type == '' leads to subject == Object
+	end
 end

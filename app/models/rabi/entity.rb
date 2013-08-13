@@ -51,7 +51,7 @@ class Rabi::Entity < ActiveRecord::Base
 		source_relations + target_relations
 	end
 
-	has_many :permits, class_name: 'User::Permit', inverse_of: :subject_entity,
+	has_many :permits, class_name: 'User::Permit',
 		primary_key: :name, foreign_key: :subject_type
 
 
